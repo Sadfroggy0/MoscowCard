@@ -1,8 +1,9 @@
 package com.example.moscowcard.config;
 
-import com.example.store.models.Excursion;
-import com.example.store.models.Shop;
-import com.example.store.models.Spot;
+import com.example.moscowcard.models.Excursion;
+import com.example.moscowcard.models.Shop;
+import com.example.moscowcard.models.Spot;
+
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;

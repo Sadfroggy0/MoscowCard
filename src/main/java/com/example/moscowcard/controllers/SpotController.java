@@ -1,6 +1,7 @@
 package com.example.moscowcard.controllers;
 
-import com.example.store.services.SpotService;
+import com.example.moscowcard.repositories.SpotRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,11 +11,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/spot")
 public class SpotController {
-    SpotService spotService = new SpotService();
+    @Autowired
+    SpotRepository spotRepository;
 
     @GetMapping("/{id}")
-    public String spot(Model model,@PathVariable int id){
-        model.addAttribute("spot",spotService.findById(id));
+    public String spot(Model model,@PathVariable Long id){
+        model.addAttribute("spot",spotRepository.findById(id));
 
         return "spot";
     }
