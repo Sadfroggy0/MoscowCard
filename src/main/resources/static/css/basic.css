@@ -1,0 +1,38 @@
+body{
+    height: 100%;
+}
+.wrapper{
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+.menu{
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: #FFF8E9;
+    width: 100%;
+    height: 30px;
+    z-index: 2;
+    padding-left: 115px;
+}
+
+.content{
+    flex: 1 1 auto;
+    padding-top: 40px;
+}
+.footer{
+
+    width: 100%;
+    height: 40px;
+    text-align: center;
+    background-color:#FFF8E9;
+    z-index: 0;
+}
+.menu a{
+    text-decoration: none;
+}
+
+

@@ -1,0 +1,16 @@
+.grid{
+    float: left;
+    width: 100%;
+    height:100% ;
+}
+.product{
+    display: block;
+    width: 25%;
+    height: 100%;
+    float: left;
+    margin:2%;
+}
+.product-image{
+    width: 100%;
+    height: 250px;
+}
