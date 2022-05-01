@@ -16,8 +16,9 @@ public class MoscowCardApplication {
     @Bean
     public CommandLineRunner commandLineRunner(SpotRepository spotrep) {
         return (args) -> {
-            spotrep.save(new Spot("AAAAAAAAAAA","PIZDAAAAA"));
             System.out.println();
+            Spot spot = spotrep.findById(1);
+            System.out.println(spot.getId() + " " + spot.getName() + " " + spot.getDescription());
         };
 
     }

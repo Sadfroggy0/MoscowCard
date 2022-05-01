@@ -9,13 +9,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/spot")
 public class SpotController {
     @Autowired
     SpotRepository spotRepository;
 
-    @GetMapping("/{id}")
-    public String spot(Model model,@PathVariable Long id){
+    @GetMapping("/spot/{id}")
+    public String spot(Model model,@PathVariable Integer id){
         model.addAttribute("spot",spotRepository.findById(id));
 
         return "spot";
