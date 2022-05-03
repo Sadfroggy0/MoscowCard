@@ -5,6 +5,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "excursion")
 public class Excursion {
+
     @Id
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
     private int id;
@@ -26,6 +27,10 @@ public class Excursion {
         this.tickets_left = tickets_left;
         this.price = price;
         this.spot = spot;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getId() {
