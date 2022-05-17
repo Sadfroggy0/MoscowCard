@@ -1,10 +1,22 @@
 package com.example.moscowcard.controllers;
 
+import com.example.moscowcard.models.Spot;
+import com.example.moscowcard.repositories.SpotRepository;
+import com.example.moscowcard.services.SpotService;
+import net.bytebuddy.agent.builder.AgentBuilder;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 @org.springframework.stereotype.Controller
 public class IndexController {
+    @Autowired
+    SpotService spotService;
+
     @GetMapping("/index")
     public String mainPage(){
         return "index";
@@ -31,6 +43,9 @@ public class IndexController {
     }
 
     @GetMapping("/sights")
-    public String sights() {return "sights";}
+    public String sights() {
+        return "sights";
+    }
+
 
 }

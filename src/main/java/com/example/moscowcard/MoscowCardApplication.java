@@ -1,6 +1,8 @@
 package com.example.moscowcard;
 
+import com.example.moscowcard.models.Excursion;
 import com.example.moscowcard.models.Spot;
+import com.example.moscowcard.repositories.ExcursionRepository;
 import com.example.moscowcard.repositories.SpotRepository;
 import com.example.moscowcard.services.SpotService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +21,7 @@ public class MoscowCardApplication {
     }
 
     @Bean
-    public CommandLineRunner commandLineRunner(SpotRepository spotrep) {
+    public CommandLineRunner commandLineRunner(SpotRepository spotrep, ExcursionRepository er) {
         return (args) -> {
             /*Spot wanToChange = spotrep.findById(5);
             wanToChange.setDescription("This is changed decription for 5 index");
@@ -45,6 +47,7 @@ public class MoscowCardApplication {
             spotrep.saveAll(spotList);
 
              */
+           // er.save(new Excursion("VDNH Excursion", 30, 15, 500, spotrep.findById(34)));
 
 
         };

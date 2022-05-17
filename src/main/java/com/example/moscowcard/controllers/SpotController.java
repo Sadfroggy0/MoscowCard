@@ -10,8 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 @Controller
 public class SpotController {
-    @Autowired
-    private SpotRepository spotRepository;
+
     @Autowired
     SpotService spotService;
 
@@ -19,6 +18,8 @@ public class SpotController {
     public String spot(Model model,@PathVariable Integer id){
         model.addAttribute("spot",spotService.findById(id));
 
+
         return "spot";
     }
+
 }

@@ -28,6 +28,11 @@ public class Spot {
         return name;
     }
 
+    @Override
+    public String toString() {
+        return id +"| "+ name +"| "+description;
+    }
+
     public void setName(String name) {
         this.name = name;
     }

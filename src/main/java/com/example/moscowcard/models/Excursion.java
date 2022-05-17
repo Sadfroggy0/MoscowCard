@@ -77,4 +77,15 @@ public class Excursion {
         this.spot = spot;
     }
 
+    @Override
+    public String toString() {
+        return "Excursion{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", tickets=" + tickets +
+                ", tickets_left=" + tickets_left +
+                ", price=" + price +
+                ", spot=" + spot +
+                '}';
+    }
 }

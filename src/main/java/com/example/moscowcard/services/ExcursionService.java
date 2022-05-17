@@ -4,10 +4,14 @@ import com.example.moscowcard.models.Excursion;
 import com.example.moscowcard.models.Spot;
 import com.example.moscowcard.repositories.ExcursionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Transactional
+@Service
 public class ExcursionService  implements IExcursionService{
     @Autowired
     ExcursionRepository excursionRepository;

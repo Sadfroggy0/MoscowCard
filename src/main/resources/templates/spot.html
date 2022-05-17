@@ -31,17 +31,9 @@
         </div>
     </nav>
 
-    <div th:text="${spot.getName()}" class="content">
-    </div>
-
-    <div th:text=" ${spot.getId()}" class="content">
-
-    </div>
-
-    <div th:text="${spot.getDescription()}"></div>
-    </div>
-
-    <div class="content">
+    <div class="content" th:object="${spot}">
+        <h2 style="text-align: center" th:text="*{name}"></h2>
+        <div th:text="*{description}"></div>
     </div>
 
     <div class="footer">
