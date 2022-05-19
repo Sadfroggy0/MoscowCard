@@ -47,7 +47,7 @@ public class MoscowCardApplication {
             spotrep.saveAll(spotList);
 
              */
-           // er.save(new Excursion("VDNH Excursion", 30, 15, 500, spotrep.findById(34)));
+           er.save(new Excursion("Tsaritsiono Excursion", 333, 100, 666, spotrep.findById(34)));
 
 
         };

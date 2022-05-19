@@ -8,7 +8,8 @@
     <div th:each="object:${table}">
         <span th:text="*{object.toString()}"></span>
         <br>
-        <input type="button" value="">
+        <a th:href="@{/admin/spots/*{object.id}/edit}">edit</a>
+        <a th:href="@{/admin/spots/*{object.getId()}/delete}">delete</a>
     </div>
 </body>
 </html>

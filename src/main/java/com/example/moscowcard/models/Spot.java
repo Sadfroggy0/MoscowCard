@@ -9,6 +9,7 @@ public class Spot {
     private Integer id;
     private String name;
     private String description;
+    private String link;
     public Spot(){}
 
     public Spot(String name, String description) {
@@ -43,5 +44,13 @@ public class Spot {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
     }
 }

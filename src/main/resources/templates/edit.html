@@ -5,7 +5,7 @@
     <title>Edit</title>
 </head>
 <body>
-<form th:method="PATCH" th:action="@{/show/{id}(id =${spot.getId()})}" th:object="${spot}">
+<form th:method="POST" th:action="@{/{id}(id =${spot.getId()})}" th:object="${spot}">
 
   <label for="name">Enter name</label>
   <input type="text" th:field="*{name}" id ="name"/>

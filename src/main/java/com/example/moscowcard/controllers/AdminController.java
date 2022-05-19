@@ -30,7 +30,7 @@ public class AdminController {
             model.addAttribute("table",spotService.findAll());
         if (tableName.equals("excursions"))
             model.addAttribute("table",excursionService.findAll());
-
+            
         return "show";
     }
 
@@ -52,18 +52,16 @@ public class AdminController {
         model.addAttribute("spot", spotService.findById(id));
         return "edit";
     }
-    @PatchMapping("/{id}")
+    @PostMapping("/{id}")
     public String update(@ModelAttribute("spot")Spot spot,@PathVariable("id")int id ){
         spotService.save(spot);
         return "redirect:/admin/spots/show";
     }
+    @GetMapping("/admin/spots/{id}/delete")
+    public String deleteSpot(@PathVariable("id")int id){
+        spotService.deleteById(id);
+        return "redirect:/admin/spots/show";
+    }
 
-
-    /*
-    @PatchMapping("/{id}")
-    public String update(@ModelAttribute("spot") new Spot(), @PathVariable("id") int id) {
-        spotService.save(spot);
-        return "redirect:/people";
-    }*/
 
 }

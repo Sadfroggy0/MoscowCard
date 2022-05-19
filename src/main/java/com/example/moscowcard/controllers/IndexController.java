@@ -43,7 +43,8 @@ public class IndexController {
     }
 
     @GetMapping("/sights")
-    public String sights() {
+    public String sights(Model model) {
+        model.addAttribute("sightsList",spotService.findAll());
         return "sights";
     }
 
