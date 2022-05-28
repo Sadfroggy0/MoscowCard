@@ -18,7 +18,6 @@ public class SpotController {
     public String spot(Model model,@PathVariable Integer id){
         model.addAttribute("spot",spotService.findById(id));
 
-
         return "spot";
     }
 
