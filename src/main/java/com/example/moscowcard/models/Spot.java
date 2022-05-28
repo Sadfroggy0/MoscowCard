@@ -1,5 +1,6 @@
 package com.example.moscowcard.models;
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="spot")
@@ -10,12 +11,19 @@ public class Spot {
     private String name;
     private String description;
     private String link;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "excursion_id")
+    private Excursion excursion;
+
     public Spot(){}
+
 
     public Spot(String name, String description) {
         this.name = name;
         this.description = description;
     }
+
 
     public Integer getId() {
         return id;
@@ -52,5 +60,9 @@ public class Spot {
 
     public void setLink(String link) {
         this.link = link;
+    }
+
+    public void setExcursion(Excursion excursion) {
+        this.excursion = excursion;
     }
 }

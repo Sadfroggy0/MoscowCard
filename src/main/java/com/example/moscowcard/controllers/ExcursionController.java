@@ -18,6 +18,7 @@ public class ExcursionController {
     @GetMapping("/excursions")
     public String excursions(Model model){
         model.addAttribute("excursionList",excursionRepository.findAll());
+        model.addAttribute("spotPhoto",spotRepository.findAll());
         return "excursions";
     }
 

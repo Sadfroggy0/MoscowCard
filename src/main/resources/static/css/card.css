@@ -1,0 +1,34 @@
+.card{
+    cursor: pointer;
+    width: 340px;
+    height: 480px;
+}
+.front,
+.back{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    backface-visibility: hidden;
+    position: absolute;
+    transition: transform .6s linear;
+}
+.front img{
+    height: 100%;
+}
+.front{
+    transform: perspective(600px) rotateY(0deg);
+}
+.back{
+    transform: perspective(600px) rotateY(180deg);
+    background-color: #f1f1f1;
+}
+span{
+    display: block;
+    font-size: 20px;
+}
+.card:hover > .front{
+    transform: perspective(600px) rotateY(-180deg);
+}
+.card:hover > .back{
+    transform: perspective(600px) rotateY(0deg);
+}

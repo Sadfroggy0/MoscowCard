@@ -1,10 +1,16 @@
 package com.example.moscowcard.models;
 
+import com.example.moscowcard.repositories.SpotRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "excursion")
 public class Excursion {
+
 
     @Id
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
@@ -15,18 +21,32 @@ public class Excursion {
     private int tickets_left;
     private int price;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "spot_id")
-    private Spot spot;
+
+    @OneToMany(mappedBy = "excursion",cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Spot> spotList;
 
     public Excursion(){}
 
-    public Excursion(String name, int tickets, int tickets_left, int price, Spot spot) {
+    public Excursion(String name, int tickets, int tickets_left, int price) {
         this.name = name;
         this.tickets = tickets;
         this.tickets_left = tickets_left;
         this.price = price;
-        this.spot = spot;
+        spotList = new ArrayList<>();
+    }
+    public void addSpot(Spot spot){
+        spot.setExcursion(this);
+        spotList.add(spot);
+    }
+    public void removeSpot(Spot spot){
+        spotList.remove(spot);
+    }
+    public void setSpotList(List<Spot>spotList){
+        this.spotList = spotList;
+    }
+
+    public List<Spot> getSpotList() {
+        return spotList;
     }
 
     public void setId(int id) {
@@ -69,23 +89,15 @@ public class Excursion {
         this.price = price;
     }
 
-    public Spot getSpot() {
-        return spot;
-    }
+//    public Spot getSpot() {
+//        return spot;
+//    }
 
-    public void setSpot(Spot spot) {
-        this.spot = spot;
-    }
+//    public void setSpot(Spot spot) {
+//        this.spot = spot;
+//    }
 
-    @Override
-    public String toString() {
-        return "Excursion{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", tickets=" + tickets +
-                ", tickets_left=" + tickets_left +
-                ", price=" + price +
-                ", spot=" + spot +
-                '}';
-    }
+
+
+
 }
