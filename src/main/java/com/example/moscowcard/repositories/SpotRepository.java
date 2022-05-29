@@ -16,4 +16,5 @@ public interface SpotRepository extends CrudRepository<Spot,Long> {
 
     void deleteById(Integer id);
 
+
 }

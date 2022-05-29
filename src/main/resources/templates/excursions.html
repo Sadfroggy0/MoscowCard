@@ -39,7 +39,7 @@
           <div th:each="excur:${excursionList}" class="col">
             <div class="card shadow-sm">
               <div class="front">
-                <img class="album-img" th:src="${#}">
+
                 <div class="card-body" th:text="${excur.getName()}"></div>
               </div>
               <div class="back">

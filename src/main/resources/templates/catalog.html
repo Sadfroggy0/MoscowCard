@@ -35,48 +35,14 @@
         <div class="container">
             <div class="row row-cols-4 g-3">
                 <div class="col-4">
-                    <div class="card ">
-                        <img class="album-img" src="images/ushanka.jpg">
-                        <div class="card-body">Шапка ушанка</div>
-                        <a href="/items/ushanka" class="btn btn-outline-secondary">Узнать больше</a>
+                    <div th:each="it:${shopList}" class="card ">
+                        <img class="album-img" th:src="${it.getLink()}">
+                        <div th:text="${it.getName()}" class="card-body">Шапка ушанка</div>
+                        <a th:href="@{catalog/item/{id}(id = ${it.getId()})}" class="btn btn-outline-secondary">Узнать больше</a>
                         <a href="#" class="btn btn-success">купить</a>
                     </div>
                 </div>
 
-
-                <div class="col-4">
-                    <div class="card shadow-sm">
-                        <img class="album-img" src="images/caviar.jpg">
-                        <div class="card-body">Икра Белуги</div>
-                        <a href="/items/caviar" class="btn btn-outline-secondary">Узнать больше</a>
-                        <a href="#" class="btn btn-success">купить</a>
-                    </div>
-                </div>
-
-                <div class="col-4">
-                    <div class="card shadow-sm">
-                        <img class="album-img" src="images/valenki.jpg">
-                        <div class="card-body">Валенки</div>
-                        <a href="/items/valenki" class="btn btn-outline-secondary">Узнать больше</a>
-                        <a href="#" class="btn btn-success">купить</a>
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div class="card shadow-sm">
-                        <img class="album-img" src="images/valenki.jpg">
-                        <div class="card-body">Валенки</div>
-                        <a href="/items/valenki" class="btn btn-outline-secondary">Узнать больше</a>
-                        <a href="#" class="btn btn-success">купить</a>
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div class="card shadow-sm">
-                        <img class="album-img" src="images/valenki.jpg">
-                        <div class="card-body">Валенки</div>
-                        <a href="/items/valenki" class="btn btn-outline-secondary">Узнать больше</a>
-                        <a href="#" class="btn btn-success">купить</a>
-                    </div>
-                </div>
             </div>
         </div>
         <div class="footer">

@@ -2,6 +2,7 @@ package com.example.moscowcard.controllers;
 
 import com.example.moscowcard.models.Spot;
 import com.example.moscowcard.repositories.SpotRepository;
+import com.example.moscowcard.services.ShopService;
 import com.example.moscowcard.services.SpotService;
 import net.bytebuddy.agent.builder.AgentBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,8 @@ import java.util.List;
 public class IndexController {
     @Autowired
     SpotService spotService;
+    @Autowired
+    ShopService shopService;
 
     @GetMapping("/index")
     public String mainPage(){
@@ -23,7 +26,8 @@ public class IndexController {
     }
 
     @GetMapping("/catalog")
-    public String catalog(){
+    public String catalog(Model model){
+        model.addAttribute("shopList",shopService.findAll());
         return "catalog";
     }
 

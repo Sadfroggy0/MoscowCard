@@ -65,4 +65,7 @@ public class Spot {
     public void setExcursion(Excursion excursion) {
         this.excursion = excursion;
     }
+    public Excursion getExcursion(){
+        return excursion;
+    }
 }

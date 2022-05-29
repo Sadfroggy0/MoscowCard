@@ -57,6 +57,7 @@ public class AdminController {
         spotService.save(spot);
         return "redirect:/admin/spots/show";
     }
+
     @GetMapping("/admin/spots/{id}/delete")
     public String deleteSpot(@PathVariable("id")int id){
         spotService.deleteById(id);

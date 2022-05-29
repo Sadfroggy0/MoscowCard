@@ -1,9 +1,12 @@
 package com.example.moscowcard;
 
 import com.example.moscowcard.models.Excursion;
+import com.example.moscowcard.models.Shop;
 import com.example.moscowcard.models.Spot;
 import com.example.moscowcard.repositories.ExcursionRepository;
+import com.example.moscowcard.repositories.ShopRepository;
 import com.example.moscowcard.repositories.SpotRepository;
+import com.example.moscowcard.services.ExcursionService;
 import com.example.moscowcard.services.SpotService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -21,7 +24,7 @@ public class MoscowCardApplication {
     }
 
     @Bean
-    public CommandLineRunner commandLineRunner(SpotRepository spotrep, ExcursionRepository er) {
+    public CommandLineRunner commandLineRunner(SpotRepository spotrep, ShopRepository sr) {
         return (args) -> {
             /*Spot wanToChange = spotrep.findById(5);
             wanToChange.setDescription("This is changed decription for 5 index");
@@ -48,20 +51,22 @@ public class MoscowCardApplication {
 
              */
            //er.save(new Excursion("Tsaritsiono Excursion", 333, 100, 666, spotrep.findById(34)));
-            Spot spot1 = spotrep.findById(1);
-            Spot spot2 = spotrep.findById(2);
-            Spot spot3 = spotrep.findById(3);
-
-            Excursion excursion = new Excursion("First three excursion", 250, 333, 111);
-            spot1.setExcursion(excursion);
-            spot2.setExcursion(excursion);
-            spot3.setExcursion(excursion);
-
-            excursion.addSpot(spot1);
-            excursion.addSpot(spot2);
-            excursion.addSpot(spot3);
-
-            er.save(excursion);
+//            Spot spot1 = spotrep.findById(1);
+//            Spot spot2 = spotrep.findById(2);
+//            Spot spot3 = spotrep.findById(3);
+//
+//            Excursion excursion = new Excursion("First three excursion", 250, 333, 111);
+//            spot1.setExcursion(excursion);
+//            spot2.setExcursion(excursion);
+//            spot3.setExcursion(excursion);
+//
+//            excursion.addSpot(spot1);
+//            excursion.addSpot(spot2);
+//            excursion.addSpot(spot3);
+//
+//            er.save(excursion);
+//            Shop shop = sr.findById(1);
+//            System.out.println();
 
         };
 

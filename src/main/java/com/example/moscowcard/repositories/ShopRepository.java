@@ -1,22 +1,16 @@
 package com.example.moscowcard.repositories;
 
-import com.example.moscowcard.models.Excursion;
+import com.example.moscowcard.models.Shop;
 import com.example.moscowcard.models.Spot;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Transactional
-public interface ExcursionRepository extends CrudRepository<Excursion, Long> {
-    Spot findById(Integer id);
-
-    List<Excursion> findAll();
-
+public interface ShopRepository extends CrudRepository<Shop, Long> {
+    Shop findById(Integer id);
     void deleteById(Integer id);
-
-    @Override
-    default <S extends Excursion> S save(S entity) {
-        return null;
-    }
+    List<Shop> findAll();
 }
