@@ -36,14 +36,14 @@
         <div class="container">
             <div class="row row-cols-4 g-3">
                 <div class="col-4">
-                    <div th:each="it:${shopList}" class="card ">
+
+                    <form th:each="it:${shopList}" th:method="POST" th:action="@{/catalog}" th:object="${it}" class="card ">
                         <img class="album-img" th:src="${it.getLink()}">
                         <div style="text-align: center" th:text="${it.getName() +'| цена:'+ it.getPrice()+' рублей'} " class="card-body">Шапка ушанка</div>
                         <a th:href="@{catalog/item/{id}(id = ${it.getId()})}" class="btn btn-outline-secondary">Узнать больше</a>
                             <button style="background-color: darkseagreen" type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" >
                                 Купить
                             </button>
-
                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
@@ -61,7 +61,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </form>
                 </div>
 
             </div>

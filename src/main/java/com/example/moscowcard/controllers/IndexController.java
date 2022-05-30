@@ -25,11 +25,7 @@ public class IndexController {
         return "index";
     }
 
-    @GetMapping("/catalog")
-    public String catalog(Model model){
-        model.addAttribute("shopList",shopService.findAll());
-        return "catalog";
-    }
+
 
     @GetMapping("/items/ushanka")
     public String milk(){
