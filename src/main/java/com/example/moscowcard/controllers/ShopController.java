@@ -28,11 +28,14 @@ public class ShopController {
         model.addAttribute("char", shopService.findAllCharacteristicsById(id));
         return "items/item";
     }
-    @PostMapping()
-    public String purchase(@ModelAttribute("it") Shop shop){
-//        ArrayList<Shop> list  = new ArrayList<>(shopList);
-          shop.setItemsLeft(shop.getItemsLeft()-1);
-          shopService.save(shop);
+    @PostMapping("/item/{id}")
+    public String purchase(@PathVariable("id") int id){
+        Shop shop = shopService.findById(id);
+        shop.setItemsLeft(shop.getItemsLeft()-1);
+        shopService.save(shop);
+//       ArrayList<Shop> list  = new ArrayList<>(shopList);
+//          shop.setItemsLeft(shop.getItemsLeft()-1);
+//          shopService.save(shop);
         return "redirect:/catalog";
     }
 

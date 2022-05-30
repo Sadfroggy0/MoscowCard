@@ -9,14 +9,11 @@ import java.util.List;
 
 @Transactional
 public interface ExcursionRepository extends CrudRepository<Excursion, Long> {
-    Spot findById(Integer id);
+    Excursion findById(Integer id);
 
     List<Excursion> findAll();
 
     void deleteById(Integer id);
 
-    @Override
-    default <S extends Excursion> S save(S entity) {
-        return null;
-    }
+
 }

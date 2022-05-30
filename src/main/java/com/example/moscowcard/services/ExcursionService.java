@@ -18,7 +18,7 @@ public class ExcursionService  implements IExcursionService{
 
 
     @Override
-    public Spot findById(int id) {
+    public Excursion findById(int id) {
         return excursionRepository.findById(id);
     }
 

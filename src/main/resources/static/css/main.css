@@ -1,6 +1,10 @@
 body{
     margin: 0;
     padding: 0;
+
+}
+.offcanvas-title{
+    font-size: 30px;
 }
 .video-bg{
     height: 100vh;
@@ -45,3 +49,6 @@ body{
 .btn-primary{
     margin-left: 35%;
 }
+.body a:visited,a:hover,a:active,a:focus{text-decoration: none;}
+
+

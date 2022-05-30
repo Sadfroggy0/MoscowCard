@@ -6,7 +6,7 @@ import com.example.moscowcard.models.Spot;
 import java.util.List;
 
 public interface IExcursionService {
-    Spot findById(int id);
+    Excursion findById(int id);
 
     List<Excursion> findAll();
 

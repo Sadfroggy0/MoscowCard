@@ -25,7 +25,10 @@
               <a class="nav-link"   href="/catalog">Каталог</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/sights">Достопримечательности</a>
+              <a class="nav-link"  href="/sights">Достопримечательности</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/excursions">Экскурсии</a>
             </li>
           </ul>
         </div>
@@ -35,15 +38,23 @@
       <div class="container">
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 
-
           <div th:each="excur:${excursionList}" class="col">
             <div class="card shadow-sm">
               <div class="front">
-
-                <div class="card-body" th:text="${excur.getName()}"></div>
+                <img style="height: 80%" th:src="${excur.getLink()}">
+                <div style="z-index: 3" class="card-body" th:text="${excur.getName()}"></div>
               </div>
               <div class="back">
-                Уникальная экскурсия по местам с лучшими гидами города Москва!
+                <div style="margin-top: 50%" class="d-grid gap-2 col-6 mx-auto">
+                  <div class="row">
+                    <div class="col">
+                      <input type="text" class="form-control" placeholder="Количество билетов" aria-label="Количество билетов">
+                    </div>
+                  </div>
+                  <form style="margin-left: 25%" th:method="POST" th:action="@{/excursions/buy/{id}(id = ${excur.getId()})}">
+                    <button  class="btn btn-primary" type="submit">Купить</button>
+                  </form>
+                </div>
               </div>
             </div>
           </div>

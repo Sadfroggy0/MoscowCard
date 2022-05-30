@@ -12,9 +12,9 @@ public class Spot {
     private String description;
     private String link;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "excursion_id")
-    private Excursion excursion;
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "excursion_id")
+//    private Excursion excursion;
 
     public Spot(){}
 
@@ -23,6 +23,12 @@ public class Spot {
         this.name = name;
         this.description = description;
     }
+    public Spot(String name, String description,String link) {
+        this.name = name;
+        this.description = description;
+        this.link = link;
+    }
+
 
 
     public Integer getId() {
@@ -62,10 +68,10 @@ public class Spot {
         this.link = link;
     }
 
-    public void setExcursion(Excursion excursion) {
-        this.excursion = excursion;
-    }
-    public Excursion getExcursion(){
-        return excursion;
-    }
+//    public void setExcursion(Excursion excursion) {
+//        this.excursion = excursion;
+//    }
+//    public Excursion getExcursion(){
+//        return excursion;
+//    }
 }

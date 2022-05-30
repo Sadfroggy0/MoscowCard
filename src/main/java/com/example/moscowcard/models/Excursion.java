@@ -20,34 +20,37 @@ public class Excursion {
     private int tickets;
     private int tickets_left;
     private int price;
+    private String link;
 
 
-    @OneToMany(mappedBy = "excursion",cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Spot> spotList;
+//    @OneToMany(mappedBy = "excursion",cascade = CascadeType.ALL, orphanRemoval = true)
+//    private List<Spot> spotList;
 
     public Excursion(){}
 
-    public Excursion(String name, int tickets, int tickets_left, int price) {
+    public Excursion(String name, int tickets, int tickets_left, int price, String link) {
         this.name = name;
         this.tickets = tickets;
         this.tickets_left = tickets_left;
         this.price = price;
-        spotList = new ArrayList<>();
-    }
-    public void addSpot(Spot spot){
-        spot.setExcursion(this);
-        spotList.add(spot);
-    }
-    public void removeSpot(Spot spot){
-        spotList.remove(spot);
-    }
-    public void setSpotList(List<Spot>spotList){
-        this.spotList = spotList;
-    }
+        this.link = link;
 
-    public List<Spot> getSpotList() {
-        return spotList;
+        //spotList = new ArrayList<>();
     }
+//    public void addSpot(Spot spot){
+//        spot.setExcursion(this);
+//        spotList.add(spot);
+//    }
+//    public void removeSpot(Spot spot){
+//        spotList.remove(spot);
+//    }
+//    public void setSpotList(List<Spot>spotList){
+//        this.spotList = spotList;
+//    }
+//
+//    public List<Spot> getSpotList() {
+//        return spotList;
+//    }
 
     public void setId(int id) {
         this.id = id;
@@ -87,6 +90,14 @@ public class Excursion {
 
     public void setPrice(int price) {
         this.price = price;
+    }
+
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
     }
 
 //    public Spot getSpot() {
