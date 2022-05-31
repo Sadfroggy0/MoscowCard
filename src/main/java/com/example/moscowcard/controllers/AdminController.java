@@ -1,7 +1,10 @@
 package com.example.moscowcard.controllers;
 
+import com.example.moscowcard.models.Excursion;
+import com.example.moscowcard.models.Shop;
 import com.example.moscowcard.models.Spot;
 import com.example.moscowcard.services.ExcursionService;
+import com.example.moscowcard.services.ShopService;
 import com.example.moscowcard.services.SpotService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,6 +19,8 @@ public class AdminController {
 
     @Autowired
     ExcursionService excursionService;
+    @Autowired
+    ShopService shopService;
 
 
     @GetMapping("/admin")
@@ -26,10 +31,18 @@ public class AdminController {
     @GetMapping("/admin/{tableName}/show")
     public String show(Model model, @PathVariable String tableName ){
 
-        if (tableName.equals("spots"))
-            model.addAttribute("table",spotService.findAll());
-        if (tableName.equals("excursions"))
-            model.addAttribute("table",excursionService.findAll());
+        if (tableName.equals("spots")) {
+            model.addAttribute("table", spotService.findAll());
+        }
+        if (tableName.equals("excursions")) {
+            model.addAttribute("table", excursionService.findAll());
+
+        }
+
+        if (tableName.equals("shop")) {
+            model.addAttribute("table", shopService.findAll());
+
+        }
             
         return "show";
     }
@@ -47,21 +60,68 @@ public class AdminController {
         return "redirect:/admin/spots/show";
     }
 
-    @GetMapping("/admin/spots/{id}/edit")
-    public String edit(Model model, @PathVariable("id")int id ){
-        model.addAttribute("spot", spotService.findById(id));
+    @GetMapping("/admin/{name}/{id}/edit")
+    public String edit(Model model, @PathVariable("id")int id,@PathVariable("name")String name){
+        if(name.equals("spots"))
+            model.addAttribute("model", spotService.findById(id));
+        if(name.equals("excursions"))
+            model.addAttribute("model", excursionService.findById(id));
+        if(name.equals("shop")){
+            model.addAttribute("model", shopService.findById(id));
+        }
         return "edit";
     }
-    @PostMapping("/{id}")
-    public String update(@ModelAttribute("spot")Spot spot,@PathVariable("id")int id ){
+//    @PostMapping("/{name}/{id}")
+//    public String update(@ModelAttribute("model")Spot spot,
+//                         @ModelAttribute("model")Shop shop,
+//                         @ModelAttribute("model")Excursion excursion,
+//                         @PathVariable("id")int id,
+//                         @PathVariable("name")String name ){
+//        if(name.equals("spots")) {
+//            spotService.save(spot);
+//            return "redirect:/admin/spots/show";
+//        }
+//        if (name.equals("excursions")) {
+//            excursionService.save(excursion);
+//            return "redirect:/admin/excursions/show";
+//        }
+//        if (name.equals("shop")) {
+//            shopService.save(shop);
+//            return "redirect:/admin/shop/show";
+//        }
+//        return "admin";
+//
+//    }
+    @PostMapping("/spots/{id}")
+    public String update(@ModelAttribute("model")Spot spot, @PathVariable("id")int id){
         spotService.save(spot);
         return "redirect:/admin/spots/show";
+    }
+    @PostMapping("/excursions/{id}")
+    public String update(@ModelAttribute("model")Excursion excursion, @PathVariable("id")int id){
+        excursionService.save(excursion);
+        return "redirect:/admin/excursions/show";
+    }
+    @PostMapping("/shop/{id}")
+    public String update(@ModelAttribute("model")Shop shop, @PathVariable("id")int id){
+        shopService.save(shop);
+        return "redirect:/admin/shop/show";
     }
 
     @GetMapping("/admin/spots/{id}/delete")
     public String deleteSpot(@PathVariable("id")int id){
         spotService.deleteById(id);
         return "redirect:/admin/spots/show";
+    }
+    @GetMapping("/admin/excursions/{id}/delete")
+    public String deleteExcursions(@PathVariable("id")int id){
+        excursionService.deleteById(id);
+        return "redirect:/admin/excursions/show";
+    }
+    @GetMapping("/admin/shop/{id}/delete")
+    public String deleteShop(@PathVariable("id")int id){
+        shopService.deleteById(id);
+        return "redirect:/admin/shop/show";
     }
 
 

@@ -35,8 +35,16 @@ public class MoscowCardApplication {
 //           );
 //           er.save(excursion);
 //            System.out.println();
+//            Shop s = sr.findById(1);
+//            s.setCharacteristics("Страна-изготовитель: Россия;Сезон: Зима;Натуральный мех;Натуральная замша;Коллекция: Натуральный мех");
+//            sr.save(s);
+//
+//            Shop s1 = sr.findById(5);
+//            s1.setCharacteristics("изготовлены  из  100%-ной шерсти;Ручная работа; Производство: Россия");
+//            sr.save(s1);
 
         };
+
 
 
     }

@@ -19,6 +19,8 @@ public class Shop {
     private String description;
     private String link;
     private String characteristics;
+    private static final String modelName = "shop";
+
 
     public Shop(){}
     public Shop(String name, int itemsLeft, int price, String description, String link,String characteristics){
@@ -92,5 +94,15 @@ public class Shop {
 
     public void setCharacteristics(String characteristics) {
         this.characteristics = characteristics;
+    }
+
+    @Override
+    public String toString() {
+        return id + " | " + name+ " | " +" товаров остлаось:"+ itemsLeft + " | " +
+        " Цена:"+price;
+    }
+
+    public static String getModelName() {
+        return modelName;
     }
 }

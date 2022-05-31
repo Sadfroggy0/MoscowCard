@@ -5,19 +5,71 @@
     <title>Edit</title>
 </head>
 <body>
-<form th:method="POST" th:action="@{/{id}(id =${spot.getId()})}" th:object="${spot}">
+<form th:method="POST" th:action="@{/{name}/{id}(id =${model.getId()},name = ${model.getModelName()})}" th:object="${model}">
+    <div th:if="${model.getModelName()=='spots'}">
+        <label for="name">Enter name</label>
+        <input type="text" th:field="*{name}" id="name"/>
+        <br/>
+        <label for="description">Enter new description</label>
+        <input type="text" th:field="*{description}" id="description"/>
+        <br/>
+        <label for="photo">Enter new photo link</label>
+        <input type="text" th:field="*{link}" id="photo"/>
+        <br/>
 
-  <label for="name">Enter name</label>
-  <input type="text" th:field="*{name}" id ="name"/>
+        <input type="submit" value="Update"/>
+    </div>
 
-  <br/>
+    <div th:if="${model.getModelName()=='excursions'}">
+        <label for="name">Enter new name</label>
+        <input type="text" th:field="*{name}" id="name2"/>
+        <br/>
 
-  <label for="description">Enter description</label>
-  <input type="text" th:field="*{description}" id ="description"/>
-  <br/>
+        <label for="price">Enter new price</label>
+        <input type="text" th:field="*{price}" id="price"/>
+        <br/>
 
-  <input type="submit" value="Update"/>
+        <label for="ticketsAll">Enter new all-tickets</label>
+        <input type="text" th:field="*{tickets}" id="ticketsAll"/>
+        <br/>
 
+
+        <label for="tickets">Enter new tickets left</label>
+        <input type="text" th:field="*{tickets_left}" id="tickets"/>
+        <br/>
+
+        <label for="tickets">Enter new photo lin</label>
+        <input type="text" th:field="*{link}" id="link"/>
+        <br/>
+        <input type="submit" value="Update"/>
+    </div>
+
+    <div th:if="${model.getModelName()=='shop'}">
+        <label for="name3">Enter name</label>
+        <input type="text" th:field="*{name}" id="name3"/>
+        <br/>
+
+        <label for="price2">Enter new price </label>
+        <input type="text" th:field="*{price}" id="price2"/>
+        <br/>
+        <label for="itemsLeft">Enter new items left </label>
+        <input type="text" th:field="*{itemsLeft}" id="itemsLeft"/>
+        <br/>
+
+        <label for="description2">Enter new description</label>
+        <input type="text" th:field="*{description}" id="description2"/>
+        <br/>
+
+        <label for="char">Enter new characteristics</label>
+        <input type="text" th:field="*{characteristics}" id="char"/>
+        <br/>
+
+        <label for="photo2">Enter new photo link</label>
+        <input type="text" th:field="*{link}" id="photo2"/>
+        <br/>
+
+        <input type="submit" value="Update"/>
+    </div>
 </form>
 </body>
 </html>

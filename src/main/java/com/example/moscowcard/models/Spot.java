@@ -11,6 +11,7 @@ public class Spot {
     private String name;
     private String description;
     private String link;
+    private  static final String modelName = "spots";
 
 //    @ManyToOne(fetch = FetchType.LAZY)
 //    @JoinColumn(name = "excursion_id")
@@ -66,6 +67,10 @@ public class Spot {
 
     public void setLink(String link) {
         this.link = link;
+    }
+
+    public static String getModelName() {
+        return modelName;
     }
 
 //    public void setExcursion(Excursion excursion) {

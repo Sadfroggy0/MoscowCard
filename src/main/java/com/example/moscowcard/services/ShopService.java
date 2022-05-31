@@ -29,17 +29,17 @@ public class ShopService implements IShopService {
 
     @Override
     public void save(Shop shop) {
-
+        shopRepository.save(shop);
     }
 
     @Override
     public void deleteById(int id) {
-
+        shopRepository.deleteById(id);
     }
 
     @Override
     public void delete(Shop shop) {
-
+        shopRepository.delete(shop);
     }
 
     @Override

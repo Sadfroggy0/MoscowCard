@@ -21,6 +21,7 @@ public class Excursion {
     private int tickets_left;
     private int price;
     private String link;
+    private static final String modelName="excursions";
 
 
 //    @OneToMany(mappedBy = "excursion",cascade = CascadeType.ALL, orphanRemoval = true)
@@ -100,7 +101,15 @@ public class Excursion {
         this.link = link;
     }
 
-//    public Spot getSpot() {
+    @Override
+    public String toString() {
+        return id +" | "+ name+" | price:"+price+" | tickets:"+tickets+" | tickets left:"+tickets_left;
+    }
+
+    public static String getModelName() {
+        return modelName;
+    }
+    //    public Spot getSpot() {
 //        return spot;
 //    }
 
