@@ -11,5 +11,7 @@
         <a th:href="@{/admin/{name}/{id}/edit(id=${object.getId()},name = ${object.getModelName().toString()})}">edit</a>
         <a th:href="@{/admin/{name}/{id}/delete(id = ${object.getId()},name = ${object.getModelName().toString()})}">delete</a>
     </div>
+    <a th:href="@{/admin/{name}/new(name = ${model.toString()})}">NEW</a>
+
 </body>
 </html>

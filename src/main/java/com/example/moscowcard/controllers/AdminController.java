@@ -33,15 +33,15 @@ public class AdminController {
 
         if (tableName.equals("spots")) {
             model.addAttribute("table", spotService.findAll());
+            model.addAttribute("model",Spot.getModelName());
         }
         if (tableName.equals("excursions")) {
             model.addAttribute("table", excursionService.findAll());
-
+            model.addAttribute("model",Excursion.getModelName());
         }
-
         if (tableName.equals("shop")) {
             model.addAttribute("table", shopService.findAll());
-
+            model.addAttribute("model",Shop.getModelName());
         }
             
         return "show";
@@ -49,15 +49,35 @@ public class AdminController {
 
     @GetMapping("/admin/spots/new")
     public String newSpot(Model model){
-        model.addAttribute("spot",new Spot());
+        model.addAttribute("model",new Spot());
+        return "new";
+    }
+    @GetMapping("/admin/excursions/new")
+    public String newExcursion(Model model){
+        model.addAttribute("model",new Excursion());
+        return "new";
+    }
+    @GetMapping("/admin/shop/new")
+    public String newShop(Model model){
+        model.addAttribute("model",new Shop());
         return "new";
     }
 
    // @RequestMapping(value="/show", method=RequestMethod.POST)
-    @PostMapping("/show")
-    public String create(@ModelAttribute("spot")Spot spot){
+    @PostMapping("/spots/show")
+    public String create(@ModelAttribute("model")Spot spot){
         spotService.save(spot);
         return "redirect:/admin/spots/show";
+    }
+    @PostMapping("/excursions/show")
+    public String create(@ModelAttribute("spot")Excursion excursion){
+        excursionService.save(excursion);
+        return "redirect:/admin/excursions/show";
+    }
+    @PostMapping("/shop/show")
+    public String create(@ModelAttribute("model")Shop shop){
+        shopService.save(shop);
+        return "redirect:/admin/shop/show";
     }
 
     @GetMapping("/admin/{name}/{id}/edit")
