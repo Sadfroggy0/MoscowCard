@@ -12,3 +12,10 @@ img{
 .description{
     position: center;
 }
+p{
+    margin-left: 15%;
+    margin-right: 15%;
+}
+ul{
+    margin: 0 15% 0 35%;
+}

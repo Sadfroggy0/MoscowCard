@@ -46,11 +46,8 @@
               </div>
               <div class="back">
                 <div style="margin-top: 50%" class="d-grid gap-2 col-6 mx-auto">
-                  <div class="row">
-                    <div class="col">
-                      <input type="text" class="form-control" placeholder="Количество билетов" aria-label="Количество билетов">
-                    </div>
-                  </div>
+                  <span style="margin-left: 18%" th:text="${'Цена: ' + excur.price}"></span>
+                  <span style="margin-left: 18%" th:text="${'Осталось: ' + excur.tickets_left}"></span>
                   <form style="margin-left: 25%" th:method="POST" th:action="@{/excursions/buy/{id}(id = ${excur.getId()})}">
                     <button  class="btn btn-primary" type="submit">Купить</button>
                   </form>

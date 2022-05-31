@@ -41,7 +41,7 @@
 
     <div class="container">
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-            <div th:each="it:${shopList}" class="col" >
+            <form th:each="it:${shopList}" th:method="POST" th:action="@{/catalog/item/{id}(id = ${it.getId()})}" class="col" >
                 <div class="card shadow-sm">
                     <img class="album-img" th:src="${it.getLink()}">
                     <div style="text-align: center" th:text="${it.getName() +'| цена:'+ it.getPrice()+' рублей'} "
@@ -49,13 +49,9 @@
                     </div>
                     <a th:href="@{catalog/item/{id}(id = ${it.getId()})}" class="btn btn-outline-secondary">Узнать
                         больше</a>
-                    <form style="margin-left: 25%" th:method="POST" th:action="@{/catalog/item/{id}(id = ${it.getId()})}">
-                        <button  class="btn btn-primary" type="submit">Купить</button>
-                    </form>
-
-
+                    <button  class="btn btn-primary" type="submit">Купить</button>
                 </div>
-            </div>
+            </form>
 
         </div>
     </div>

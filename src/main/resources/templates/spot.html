@@ -36,7 +36,8 @@
 
     <div class="content" th:object="${spot}">
         <h2 style="text-align: center" th:text="*{name}"></h2>
-        <div th:text="*{description}"></div>
+        <a th:href="*{link}" target="_blank" ><img style="margin-left: 25%; width: 50%" th:src ="*{link}"></a>
+        <div style="text-align: center; font-size: 18px" th:text="*{description}"></div>
     </div>
 
     <div class="footer">
