@@ -2,6 +2,7 @@ package com.example.moscowcard.controllers;
 
 import com.example.moscowcard.models.Spot;
 import com.example.moscowcard.repositories.SpotRepository;
+import com.example.moscowcard.services.ExcursionService;
 import com.example.moscowcard.services.ShopService;
 import com.example.moscowcard.services.SpotService;
 import net.bytebuddy.agent.builder.AgentBuilder;
@@ -19,6 +20,8 @@ public class IndexController {
     SpotService spotService;
     @Autowired
     ShopService shopService;
+    @Autowired
+    ExcursionService excursionService;
 
     @GetMapping("/index")
     public String mainPage(){
@@ -26,27 +29,22 @@ public class IndexController {
     }
 
 
+//    @GetMapping("/items/ushanka")
+//    public String milk(){
+//        return "/items/ushanka";
+//    }
+//
+//    @GetMapping("/items/caviar")
+//    public String cookies(){
+//        return "/items/caviar";
+//    }
+//
+//    @GetMapping("/items/valenki")
+//    public String salad(){
+//        return "/items/valenki";
+//    }
 
-    @GetMapping("/items/ushanka")
-    public String milk(){
-        return "/items/ushanka";
-    }
 
-    @GetMapping("/items/caviar")
-    public String cookies(){
-        return "/items/caviar";
-    }
-
-    @GetMapping("/items/valenki")
-    public String salad(){
-        return "/items/valenki";
-    }
-
-    @GetMapping("/sights")
-    public String sights(Model model) {
-        model.addAttribute("sightsList",spotService.findAll());
-        return "sights";
-    }
 
 
 

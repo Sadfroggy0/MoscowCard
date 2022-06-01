@@ -14,6 +14,12 @@ public class SpotController {
     @Autowired
     SpotService spotService;
 
+    @GetMapping("/sights")
+    public String sights(Model model) {
+        model.addAttribute("sightsList",spotService.findAll());
+        return "sights";
+    }
+
     @GetMapping("/spot/{id}")
     public String spot(Model model,@PathVariable Integer id){
         model.addAttribute("spot",spotService.findById(id));
